@@ -33,8 +33,12 @@ func connected_to_server():
 func connection_failed():
 	print('Connection failed')
 
+@rpc("any_peer", "call_local")
+
 func StartGame():
-	var scene = ("")
+	var scene = load("res://Tree.tscn").instantiate()
+	get_tree().root.add_child(scene)
+	self.hide()
 
 func _on_host_button_down():
 	peer = ENetMultiplayerPeer.new()
@@ -46,7 +50,7 @@ func _on_host_button_down():
 	
 	multiplayer.set_multiplayer_peer(peer)
 	print('Waiting For Players')
-	
+	pass
 
 
 func _on_join_button_down():
@@ -54,8 +58,9 @@ func _on_join_button_down():
 	peer.create_client(address, port)
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
-	
+	pass
 
 
 func _on_start_game_button_down():
+	StartGame.rpc()
 	pass # Replace with function body.

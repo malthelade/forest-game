@@ -15,6 +15,10 @@ run/main_scene="res://Tree.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameMannager="*res://GameMannager.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
