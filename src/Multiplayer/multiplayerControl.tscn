@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddpvayacbpcg4"]
+
+[ext_resource type="Script" path="res://Multiplayer/multiplayerControl.gd" id="1_h656n"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h656n")
+
+[node name="Host" type="Button" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 16.0
+offset_right = 216.0
+offset_bottom = 86.0
+text = "Host"
+
+[node name="Join" type="Button" parent="."]
+offset_left = 246.0
+offset_top = 16.0
+offset_right = 396.0
+offset_bottom = 86.0
+text = "Join"
+
+[node name="StartGame" type="Button" parent="."]
+offset_left = 421.0
+offset_top = 15.0
+offset_right = 571.0
+offset_bottom = 85.0
+text = "Start Game"
+
+[connection signal="button_down" from="Host" to="." method="_on_host_button_down"]
+[connection signal="button_down" from="Join" to="." method="_on_join_button_down"]
+[connection signal="button_down" from="StartGame" to="." method="_on_start_game_button_down"]
