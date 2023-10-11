@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="bamses-hytte"
-run/main_scene="res://Tree.tscn"
+run/main_scene="res://Background/baggrund.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [rendering]
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://crmpw820snie8"]
+
+[ext_resource type="Texture2D" uid="uid://xq6hihcfcwkg" path="res://House/HyttePlaceholder.png" id="1_ci23h"]
+[ext_resource type="Script" path="res://House/House.gd" id="1_elcxv"]
+
+[node name="Hys" type="Node2D"]
+position = Vector2(2, -1)
+scale = Vector2(1.125, 1.09167)
+script = ExtResource("1_elcxv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(96.8889, 125.496, 101.333, -38.4733, 10.6667, -117.252, -114.667, -35.7252, -120, 121.832, -1.66893e-06, 125.496)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ci23h")

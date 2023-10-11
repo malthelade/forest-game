@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://v28fl02ldx7d"]
+
+[ext_resource type="Texture2D" uid="uid://kbsgsh26kg0j" path="res://Background/GrassBackground.png" id="1_ddino"]
+[ext_resource type="PackedScene" uid="uid://crmpw820snie8" path="res://House/House.tscn" id="2_hqwx3"]
+[ext_resource type="PackedScene" path="res://Tree/Tree.tscn" id="3_eikhh"]
+
+[node name="Baggrund" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575, 324)
+scale = Vector2(17.9688, 10.125)
+texture = ExtResource("1_ddino")
+
+[node name="Hys" parent="." instance=ExtResource("2_hqwx3")]
+position = Vector2(562, 319)
+
+[node name="Tree" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(224, 364)
