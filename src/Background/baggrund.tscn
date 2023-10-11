@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://kbsgsh26kg0j" path="res://Background/GrassBackground.png" id="1_ddino"]
 [ext_resource type="PackedScene" uid="uid://crmpw820snie8" path="res://House/House.tscn" id="2_hqwx3"]
-[ext_resource type="PackedScene" path="res://Tree/Tree.tscn" id="3_eikhh"]
+[ext_resource type="PackedScene" uid="uid://buygwb8fxgps5" path="res://Tree/Tree.tscn" id="3_eikhh"]
 
 [node name="Baggrund" type="Node2D"]
 
