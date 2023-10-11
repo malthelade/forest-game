@@ -11,7 +11,6 @@ script = ExtResource("1_elcxv")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(96.8889, 125.496, 101.333, -38.4733, 10.6667, -117.252, -114.667, -35.7252, -120, 121.832, -1.66893e-06, 125.496)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
