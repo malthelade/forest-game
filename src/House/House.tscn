@@ -4,14 +4,25 @@
 [ext_resource type="Script" path="res://House/House.gd" id="1_elcxv"]
 
 [node name="Hys" type="Node2D"]
-position = Vector2(2, -1)
+position = Vector2(0, -7.62939e-06)
 scale = Vector2(1.125, 1.09167)
 script = ExtResource("1_elcxv")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-2.98023e-06, -3.21865e-06)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(96.8889, 125.496, 101.333, -38.4733, 10.6667, -117.252, -114.667, -35.7252, -120, 121.832, -1.66893e-06, 125.496)
+position = Vector2(7.11111, -14.6564)
+scale = Vector2(0.493353, 0.532392)
+polygon = PackedVector2Array(72.0693, 110.118, 76.6702, 0.0822067, -4.27446, -51.6321, -115.311, 13.7647, -115.311, 110.118, -14.4139, 110.118, 14.4138, 110.118)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.62939e-06, 0)
+scale = Vector2(0.404255, 0.353177)
 texture = ExtResource("1_ci23h")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

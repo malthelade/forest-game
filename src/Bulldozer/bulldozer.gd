@@ -1,27 +1,28 @@
 extends Node2D
 
-var Health = 250
+var speed = 250
+@export var move_target = Vector2.ZERO
+var move = true
 @onready var timer = $Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if move == true:
+		position += (move_target-position)/speed
 
-
-
-func upgrade_button():
-	Health = 300
-	
 
 
 func _on_area_2d_area_entered(area):
+	move = false
 	timer.start()
 
 
+
+
 func _on_timer_timeout():
-	queue_free()
+	move = true
