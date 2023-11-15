@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddpvayacbpcg4"]
+[gd_scene load_steps=4 format=3 uid="uid://ddpvayacbpcg4"]
 
 [ext_resource type="Texture2D" uid="uid://kbsgsh26kg0j" path="res://Background/GrassBackground.png" id="1_854dj"]
 
@@ -34,6 +34,7 @@ func peer_disconnected(id):
 func connected_to_server():
 	print('Connected to server!')
 	SendPlayerInformation.rpc_id(1, $LineEdit.text, multiplayer.get_unique_id())
+	
 
 # Kaldes på client
 func connection_failed():
@@ -48,8 +49,15 @@ func SendPlayerInformation(name, id):
 			\"score\" : 0
 		}
 	if multiplayer.is_server():
+		
 		for i in GameManager.Players:
 			SendPlayerInformation.rpc(GameManager.Players[i].name, i)
+			
+		
+	
+	$PlayerList.clear()
+	for i in GameManager.Players:
+		$PlayerList.add_item(GameManager.Players[i].name)
 
 @rpc(\"any_peer\", \"call_local\")
 func StartGame():
@@ -76,6 +84,7 @@ func _on_join_button_down():
 	peer.create_client(address, port)
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
+	
 	pass
 
 
@@ -83,6 +92,8 @@ func _on_start_game_button_down():
 	StartGame.rpc()
 	pass # Replace with function body.
 "
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_uer78"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -137,13 +148,23 @@ offset_right = 386.0
 offset_bottom = 256.0
 text = "Name:"
 
-[node name="PlayerList" type="Label" parent="."]
+[node name="PlayerLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 47.0
 offset_top = 52.0
 offset_right = 188.0
 offset_bottom = 355.0
 text = "Players:"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_uer78")
+
+[node name="PlayerList" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 85.0
+offset_right = 224.0
+offset_bottom = 287.0
 
 [connection signal="button_down" from="Host" to="." method="_on_host_button_down"]
 [connection signal="button_down" from="Join" to="." method="_on_join_button_down"]
