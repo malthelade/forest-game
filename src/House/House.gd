@@ -20,9 +20,9 @@ func upgrade_button():
 	
 
 
-func _on_area_2d_area_entered(area):
-	timer.start()
-
-
 func _on_timer_timeout():
 	Health -= 25
+
+
+func _on_area_entered(area):
+	timer.start()
