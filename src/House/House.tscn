@@ -22,7 +22,7 @@ scale = Vector2(0.404255, 0.353177)
 texture = ExtResource("1_ci23h")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.5
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

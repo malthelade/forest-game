@@ -22,12 +22,19 @@ func _process(delta):
 
 func _on_area_2d_area_entered(area):
 	timer.start()
+	if area.is_in_group("bulldozer"):
+		timer.start()
+		
+
+
 
 
 
 func _on_timer_timeout():
-	
 	Health -= 20
+	if Health <= 0:
+		queue_free()
+	
 	
 	
 	
@@ -35,3 +42,6 @@ func on_fire():
 	pass
 	
 	
+
+
+

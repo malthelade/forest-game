@@ -17,8 +17,8 @@ texture = ExtResource("1_ddino")
 [node name="Hys" parent="." instance=ExtResource("2_hqwx3")]
 position = Vector2(562, 319)
 
-[node name="Bulldozer" parent="." instance=ExtResource("4_rqakh")]
-position = Vector2(98, 346)
-
 [node name="Tree" parent="." instance=ExtResource("3_eikhh")]
-position = Vector2(366, 344)
+position = Vector2(390, 334)
+
+[node name="Bulldozer" parent="." instance=ExtResource("4_rqakh")]
+position = Vector2(212, 330)
