@@ -10,7 +10,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Health <= 0:
+		queue_free()
 
 
 
@@ -24,4 +25,4 @@ func _on_area_2d_area_entered(area):
 
 
 func _on_timer_timeout():
-	queue_free()
+	Health -= 25

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uh5ih"]
 size = Vector2(77, 76)
 
-[node name="Bulldozer" type="Node2D"]
+[node name="Bulldozer" type="Node2D" groups=["bulldozer"]]
 script = ExtResource("1_ycklb")
 
 [node name="Area2D" type="Area2D" parent="."]

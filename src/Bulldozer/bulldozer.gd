@@ -18,11 +18,14 @@ func _process(delta):
 
 
 func _on_area_2d_area_entered(area):
-	move = false
-	timer.start()
-
-
-
-
-func _on_timer_timeout():
-	move = true
+	
+	if area.is_in_group("tree"):
+		move = false
+	
+	
+func _on_area_2d_area_exited(area):
+	
+	if area.is_in_group("tree"):
+		move = true
+	
+	
