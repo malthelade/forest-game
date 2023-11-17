@@ -6,17 +6,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khpqs"]
 size = Vector2(52, 52)
 
-[node name="Tree" type="Node2D"]
+[node name="Tree" type="Area2D" groups=["tree"]]
 script = ExtResource("1_mxsod")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -3.8147e-06)
 scale = Vector2(0.0507291, 0.0370313)
 texture = ExtResource("1_imm6u")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_khpqs")
 debug_color = Color(0, 0.6, 0.701961, 0.431373)
 
@@ -26,6 +24,5 @@ wait_time = 0.4
 [node name="Timer_Fire" type="Timer" parent="."]
 wait_time = 0.5
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

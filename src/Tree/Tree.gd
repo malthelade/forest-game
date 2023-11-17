@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 
 @export var Health = 100
@@ -16,32 +16,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Health <= 0:
-		
 		queue_free()
-
-
-func _on_area_2d_area_entered(area):
-	timer.start()
-	if area.is_in_group("bulldozer"):
-		timer.start()
-		
-
-
-
-
 
 func _on_timer_timeout():
 	Health -= 20
 	if Health <= 0:
 		queue_free()
 	
-	
-	
-	
 func on_fire():
 	pass
 	
-	
-
-
-
+func _on_area_entered(area):
+	timer.start()
+	if area.is_in_group("bulldozer"):
+		timer.start()
