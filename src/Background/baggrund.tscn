@@ -31,6 +31,8 @@ replication_config = SubResource("SceneReplicationConfig_yng0e")
 
 [node name="Bulldozer" parent="." instance=ExtResource("4_rqakh")]
 position = Vector2(112, 352)
+move_target = Vector2(0, 0)
 
 [node name="Bulldozer2" parent="." instance=ExtResource("4_rqakh")]
 position = Vector2(1085, 339)
+move_target = Vector2(0, 0)

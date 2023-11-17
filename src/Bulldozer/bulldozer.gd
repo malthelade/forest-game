@@ -4,6 +4,8 @@ var speed = 250
 @export var move_target = Vector2.ZERO
 var move = true
 @onready var timer = $Timer
+var baggrund = 1152
+@onready var sprite = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +14,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	if position.x > baggrund/2:
+		sprite.flip()
+	
+	
 	if move == true:
 		position += (move_target-position)/speed
 
@@ -26,3 +33,4 @@ func _on_area_entered(area):
 func _on_area_exited(area):
 	if area.is_in_group("tree"):
 		move = true
+

@@ -4,6 +4,7 @@ extends Node2D
 @onready var house = $House
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	bulldozer.move_target = house.position

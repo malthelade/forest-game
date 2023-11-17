@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhxex6700emt2"]
 
-[ext_resource type="Texture2D" uid="uid://0ikyw2d3eg74" path="res://icon.svg" id="1_6gwjx"]
 [ext_resource type="Script" path="res://Bulldozer/bulldozer.gd" id="1_ycklb"]
+[ext_resource type="Texture2D" uid="uid://bo5msvgm731g" path="res://Bulldozer/BullButton.png" id="2_adepo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uh5ih"]
 size = Vector2(77, 76)
@@ -12,7 +12,7 @@ script = ExtResource("1_ycklb")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2, 5.72205e-06)
 scale = Vector2(0.578125, 0.570313)
-texture = ExtResource("1_6gwjx")
+texture = ExtResource("2_adepo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 0)
