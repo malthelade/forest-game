@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddpvayacbpcg4"]
+[gd_scene load_steps=3 format=3 uid="uid://ddpvayacbpcg4"]
 
 [ext_resource type="Texture2D" uid="uid://kbsgsh26kg0j" path="res://Background/GrassBackground.png" id="1_854dj"]
 
@@ -7,7 +7,9 @@ script/source = "extends Control
 
 @export var address = '127.0.0.1'
 @export var port = 8910
-var peer
+var peer 
+var team_a = 0
+var team_b = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +17,7 @@ func _ready():
 	multiplayer.peer_disconnected.connect(peer_disconnected)
 	multiplayer.connected_to_server.connect(connected_to_server)
 	multiplayer.connection_failed.connect(connection_failed)
-	pass # Replace with function body.
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,6 +37,7 @@ func connected_to_server():
 	print('Connected to server!')
 	SendPlayerInformation.rpc_id(1, $LineEdit.text, multiplayer.get_unique_id())
 	
+	
 
 # Kaldes på client
 func connection_failed():
@@ -43,10 +46,13 @@ func connection_failed():
 @rpc(\"any_peer\")
 func SendPlayerInformation(name, id):
 	if !GameManager.Players.has(id):
+		var team = assign_team()
 		GameManager.Players[id] ={
 			\"name\" : name,
 			\"id\" : id,
-			\"score\" : 0
+			\"score\" : 0,
+			\"team\" : team,
+			
 		}
 	if multiplayer.is_server():
 		
@@ -58,12 +64,24 @@ func SendPlayerInformation(name, id):
 	$PlayerList.clear()
 	for i in GameManager.Players:
 		$PlayerList.add_item(GameManager.Players[i].name)
+	
+	
 
 @rpc(\"any_peer\", \"call_local\")
 func StartGame():
+	var attack = load(\"res://attacker_ui.tscn\").instantiate()
+	var defend = load(\"res://defender_ui.tscn\").instantiate()
 	var scene = load(\"res://Background/baggrund.tscn\").instantiate()
 	get_tree().root.add_child(scene)
+
+	if GameManager.Players[multiplayer.get_unique_id()]['team'] == 'a':
+		get_tree().root.add_child(attack)
+	else:
+		get_tree().root.add_child(defend)
 	self.hide()
+	print(team_a, team_b)
+
+
 
 func _on_host_button_down():
 	peer = ENetMultiplayerPeer.new()
@@ -76,8 +94,7 @@ func _on_host_button_down():
 	multiplayer.set_multiplayer_peer(peer)
 	print('Waiting For Players')
 	SendPlayerInformation($LineEdit.text, multiplayer.get_unique_id())
-	pass
-
+	
 
 func _on_join_button_down():
 	peer = ENetMultiplayerPeer.new()
@@ -85,15 +102,18 @@ func _on_join_button_down():
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
 	
-	pass
-
 
 func _on_start_game_button_down():
 	StartGame.rpc()
-	pass # Replace with function body.
-"
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_uer78"]
+func assign_team():
+	if team_a >= team_b:
+		team_b += 1
+		return 'b'
+	else:
+		team_a += 1
+		return 'a'
+"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -155,9 +175,6 @@ offset_top = 52.0
 offset_right = 188.0
 offset_bottom = 355.0
 text = "Players:"
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_uer78")
 
 [node name="PlayerList" type="ItemList" parent="."]
 layout_mode = 0
