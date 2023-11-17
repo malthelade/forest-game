@@ -26,3 +26,7 @@ func _on_area_entered(area):
 func _on_area_exited(area):
 	if area.is_in_group("tree"):
 		move = true
+
+func set_move_target(pos:Vector2):
+	move_target = pos
+

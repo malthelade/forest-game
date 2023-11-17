@@ -20,7 +20,7 @@ position = Vector2(575, 324)
 scale = Vector2(17.9688, 10.125)
 texture = ExtResource("1_ddino")
 
-[node name="Hys" parent="." instance=ExtResource("2_hqwx3")]
+[node name="House" parent="." instance=ExtResource("2_hqwx3")]
 position = Vector2(562, 319)
 
 [node name="Tree" parent="." instance=ExtResource("3_eikhh")]
