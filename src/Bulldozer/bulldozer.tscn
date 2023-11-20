@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhxex6700emt2"]
+[gd_scene load_steps=5 format=3 uid="uid://dhxex6700emt2"]
 
 [ext_resource type="Script" path="res://Bulldozer/bulldozer.gd" id="1_ycklb"]
 [ext_resource type="Texture2D" uid="uid://bo5msvgm731g" path="res://Bulldozer/BullButton.png" id="2_adepo"]
@@ -6,7 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uh5ih"]
 size = Vector2(77, 76)
 
-[node name="Area2D" type="Area2D" groups=["bulldozer"]]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_the11"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="Bulldozer" type="Area2D" groups=["bulldozer"]]
 script = ExtResource("1_ycklb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -20,6 +26,9 @@ shape = SubResource("RectangleShape2D_uh5ih")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_the11")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

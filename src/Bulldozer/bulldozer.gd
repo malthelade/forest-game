@@ -13,10 +13,10 @@ func _ready():
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	if position.x > baggrund/2:
-		sprite.flip()
+		sprite.flip_h = true
 	
 	
 	if move == true:

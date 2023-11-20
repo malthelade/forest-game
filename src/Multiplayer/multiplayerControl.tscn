@@ -21,7 +21,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 # Kaldes på både server og client
@@ -69,17 +69,9 @@ func SendPlayerInformation(name, id):
 
 @rpc(\"any_peer\", \"call_local\")
 func StartGame():
-	var attack = load(\"res://attacker_ui.tscn\").instantiate()
-	var defend = load(\"res://defender_ui.tscn\").instantiate()
 	var scene = load(\"res://Background/baggrund.tscn\").instantiate()
 	get_tree().root.add_child(scene)
-
-	if GameManager.Players[multiplayer.get_unique_id()]['team'] == 'a':
-		get_tree().root.add_child(attack)
-	else:
-		get_tree().root.add_child(defend)
 	self.hide()
-	print(team_a, team_b)
 
 
 

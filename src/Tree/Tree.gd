@@ -3,8 +3,6 @@ extends Area2D
 
 @export var Health = 100
 @onready var timer = $Timer
-@onready var sprite =$Area2D/Sprite2D
-@onready var area = $Area2D
 @onready var fire_timer = $Timer_Fire
 
 
@@ -14,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Health <= 0:
 		queue_free()
 
