@@ -29,6 +29,6 @@ func _process(_delta):
 func _on_bulldoze_button_button_down():
 	spawn_bulldozer.rpc()
 
-@rpc("any_peer")
+@rpc("any_peer", "call_local")
 func spawn_bulldozer():
 	$SpawnRoot.add_child(bulldozer.instantiate())
