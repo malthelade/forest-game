@@ -7,28 +7,31 @@
 size = Vector2(102, 53)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_the11"]
-properties/0/path = NodePath(".:position")
+properties/0/path = NodePath("..:position")
 properties/0/spawn = true
 properties/0/sync = true
-properties/0/watch = true
+properties/0/watch = false
 
-[node name="Bulldozer" type="Area2D" groups=["bulldozer"]]
+[node name="Node2D" type="Node2D" groups=["bulldozer"]]
 script = ExtResource("1_ycklb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["bulldozer"]]
+
+[node name="Timer" type="Timer" parent="Area2D"]
+wait_time = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -1.5)
+shape = SubResource("RectangleShape2D_uh5ih")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 position = Vector2(-2.5, -1.405)
 scale = Vector2(0.133775, 0.116135)
 texture = ExtResource("2_konmy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -1.5)
-shape = SubResource("RectangleShape2D_uh5ih")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+root_path = NodePath("../Area2D")
 replication_config = SubResource("SceneReplicationConfig_the11")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

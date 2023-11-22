@@ -11,7 +11,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Health <= 0:
-		queue_free()
+		no_health.rpc()
 
 #When the timer stops the house will lose health
 func _on_timer_timeout():
@@ -21,3 +21,7 @@ func _on_area_entered(area):
 	if area.is_in_group("bulldozer"):
 		timer.start()
 		
+
+@rpc("any_peer","call_local")
+func no_health():
+	queue_free()

@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 var speed = 250
 @export var move_target = Vector2.ZERO
@@ -22,7 +22,7 @@ func _process(_delta):
 	if move == true:
 		position += (move_target-position)/speed
 
-func _on_area_entered(area):
+func _on_area_2d_area_entered(area):
 	if area.is_in_group("tree"):
 		move = false
 	if area.is_in_group("house"):
@@ -32,7 +32,7 @@ func _on_area_entered(area):
 
 
 
-func _on_area_exited(area):
+func _on_area_2d_area_exited(area):
 	if area.is_in_group("tree"):
 		move = true
 

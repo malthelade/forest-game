@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://crmpw820snie8"]
+[gd_scene load_steps=4 format=3 uid="uid://crmpw820snie8"]
 
 [ext_resource type="Script" path="res://House/House.gd" id="1_elcxv"]
 [ext_resource type="Texture2D" uid="uid://bcuy48ff3rtl8" path="res://House/spil hus.png" id="2_b37uq"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_cjnpu"]
+properties/0/path = NodePath(".:visible")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
 
 [node name="House" type="Area2D" groups=["house"]]
 position = Vector2(-2.98023e-06, -3.21865e-06)
@@ -19,6 +25,9 @@ texture = ExtResource("2_b37uq")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_cjnpu")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
