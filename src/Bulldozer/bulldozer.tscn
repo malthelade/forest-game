@@ -10,7 +10,7 @@ size = Vector2(77, 76)
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/sync = true
-properties/0/watch = false
+properties/0/watch = true
 
 [node name="Bulldozer" type="Area2D" groups=["bulldozer"]]
 script = ExtResource("1_ycklb")

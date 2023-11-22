@@ -4,13 +4,8 @@ extends Node2D
 @onready var house = $House
 @onready var spawner = $MultiplayerSpawner
 
-
-
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_tree().call_group('bulldozer', 'set_move_target', house.position)
 	var attack = load("res://attacker_ui.tscn").instantiate()
 	var defend = load("res://defender_ui.tscn").instantiate()
 	if GameManager.Players[multiplayer.get_unique_id()]['team'] == 'b':
@@ -31,4 +26,8 @@ func _on_bulldoze_button_button_down():
 
 @rpc("any_peer", "call_local")
 func spawn_bulldozer():
-	$SpawnRoot.add_child(bulldozer.instantiate())
+	var bull = bulldozer.instantiate()
+	$SpawnRoot.add_child(bull, true)
+	get_tree().call_group('bulldozer', 'set_move_target', house.position)
+
+
