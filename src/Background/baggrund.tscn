@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://v28fl02ldx7d"]
+[gd_scene load_steps=8 format=3 uid="uid://v28fl02ldx7d"]
 
 [ext_resource type="Texture2D" uid="uid://kbsgsh26kg0j" path="res://Background/GrassBackground.png" id="1_ddino"]
 [ext_resource type="Script" path="res://Background/baggrund.gd" id="1_l100i"]
 [ext_resource type="PackedScene" uid="uid://crmpw820snie8" path="res://House/House.tscn" id="2_hqwx3"]
 [ext_resource type="PackedScene" uid="uid://buygwb8fxgps5" path="res://Tree/Tree.tscn" id="3_eikhh"]
 [ext_resource type="PackedScene" uid="uid://dhxex6700emt2" path="res://Bulldozer/bulldozer.tscn" id="4_rqakh"]
+[ext_resource type="PackedScene" uid="uid://b3vscsfkkc6qk" path="res://Dynamit/dynamit.tscn" id="6_usf8d"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yng0e"]
 properties/0/path = NodePath("Bulldozer:position")
@@ -16,23 +17,45 @@ properties/0/watch = false
 script = ExtResource("1_l100i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(575, 324)
-scale = Vector2(17.9688, 10.125)
+position = Vector2(575, 404.5)
+scale = Vector2(17.9688, 12.6406)
 texture = ExtResource("1_ddino")
 
 [node name="House" parent="." instance=ExtResource("2_hqwx3")]
-position = Vector2(562, 319)
+position = Vector2(571, 408)
 
 [node name="Tree" parent="." instance=ExtResource("3_eikhh")]
-position = Vector2(366, 344)
+position = Vector2(432, 406)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_yng0e")
 
 [node name="Bulldozer" parent="." instance=ExtResource("4_rqakh")]
-position = Vector2(112, 352)
-move_target = Vector2(0, 0)
+position = Vector2(65, 403)
 
 [node name="Bulldozer2" parent="." instance=ExtResource("4_rqakh")]
-position = Vector2(1085, 339)
-move_target = Vector2(0, 0)
+position = Vector2(1081, 417)
+
+[node name="Tree2" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(569, 663)
+
+[node name="Tree3" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(711, 414)
+
+[node name="Tree4" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(575, 289)
+
+[node name="Tree5" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(295, 405)
+
+[node name="Tree6" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(570, 537)
+
+[node name="Tree7" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(852, 413)
+
+[node name="Tree8" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(579, 154)
+
+[node name="Dynamit" parent="." instance=ExtResource("6_usf8d")]
+position = Vector2(172, 352)

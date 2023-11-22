@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://crmpw820snie8"]
 
-[ext_resource type="Texture2D" uid="uid://xq6hihcfcwkg" path="res://House/HyttePlaceholder.png" id="1_ci23h"]
 [ext_resource type="Script" path="res://House/House.gd" id="1_elcxv"]
+[ext_resource type="Texture2D" uid="uid://bcuy48ff3rtl8" path="res://House/spil hus.png" id="2_b37uq"]
 
 [node name="House" type="Area2D" groups=["house"]]
 position = Vector2(-2.98023e-06, -3.21865e-06)
@@ -10,12 +10,12 @@ script = ExtResource("1_elcxv")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(7.11111, -14.6564)
 scale = Vector2(0.493353, 0.532392)
-polygon = PackedVector2Array(72.0693, 110.118, 76.6702, 0.0822067, -4.27446, -51.6321, -115.311, 13.7647, -115.311, 110.118, -14.4139, 110.118, 14.4138, 110.118)
+polygon = PackedVector2Array(123.419, 149.62, 121.392, -13.7936, -12.3869, -103.953, -148.192, -15.6719, -152.246, 155.255, -14.4138, 159.011, 38.2868, 155.255)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8.58307e-06, -7.62939e-06)
-scale = Vector2(0.454787, 0.385553)
-texture = ExtResource("1_ci23h")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_b37uq")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

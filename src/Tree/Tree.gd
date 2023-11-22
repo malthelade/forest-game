@@ -15,9 +15,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Health <= 0:
-		queue_free()
-
+	pass
+	
+#decreases health and checks if the house is dead and if it is dead it queue_free and deletes it
 func _on_timer_timeout():
 	Health -= 20
 	if Health <= 0:
@@ -26,7 +26,7 @@ func _on_timer_timeout():
 func on_fire():
 	pass
 	
+	#if the area the tree has entered is in the group bulldozer it will start a timer
 func _on_area_entered(area):
-	timer.start()
 	if area.is_in_group("bulldozer"):
 		timer.start()
