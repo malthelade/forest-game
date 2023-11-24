@@ -16,11 +16,6 @@ func _process(delta):
 		position.y += 2
 	
 	
-
-
-
-
-
 func _on_area_entered(area):
 	if area.is_in_group("bulldozer"):
 		entered = false
