@@ -30,7 +30,7 @@ func peer_disconnected(id):
 # Kaldes på client
 func connected_to_server():
 	print('Connected to server!')
-	SendPlayerInformation.rpc_id(1, $LineEdit.text, multiplayer.get_unique_id())
+	SendPlayerInformation.rpc_id(1, $NameLineEdit.text, multiplayer.get_unique_id())
 	
 	
 
@@ -79,13 +79,14 @@ func _on_host_button_down():
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
 	address = IP.resolve_hostname(str(OS.get_environment("COMPUTERNAME")),1)
+	$IPlabel.text = address
 	print('Waiting For Players')
-	SendPlayerInformation($LineEdit.text, multiplayer.get_unique_id())
+	SendPlayerInformation($NameLineEdit.text, multiplayer.get_unique_id())
 	
 
 func _on_join_button_down():
 	peer = ENetMultiplayerPeer.new()
-	peer.create_client(address, port)
+	peer.create_client($IPLineEdit.text, port)
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
 	

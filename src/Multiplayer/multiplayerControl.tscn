@@ -42,14 +42,14 @@ offset_right = 822.0
 offset_bottom = 356.0
 text = "Start Game"
 
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="NameLineEdit" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 392.0
 offset_top = 229.0
 offset_right = 750.0
 offset_bottom = 260.0
 
-[node name="Label" type="Label" parent="."]
+[node name="NameLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 334.0
 offset_top = 230.0
@@ -71,6 +71,21 @@ offset_left = 47.0
 offset_top = 85.0
 offset_right = 224.0
 offset_bottom = 287.0
+
+[node name="IPlabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 306.0
+offset_right = 295.0
+offset_bottom = 329.0
+
+[node name="IPLineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 396.0
+offset_right = 701.0
+offset_bottom = 427.0
+placeholder_text = "Type Host IP Here"
 
 [connection signal="button_down" from="Host" to="." method="_on_host_button_down"]
 [connection signal="button_down" from="Join" to="." method="_on_join_button_down"]
