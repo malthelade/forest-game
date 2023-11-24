@@ -19,7 +19,7 @@ func _process(_delta):
 func _on_timer_timeout():
 	Health -= 20
 	if Health <= 0:
-		queue_free()
+		no_health.rpc()
 	
 func on_fire():
 	pass
@@ -28,3 +28,7 @@ func on_fire():
 func _on_area_entered(area):
 	if area.is_in_group("bulldozer"):
 		timer.start()
+
+@rpc("any_peer","call_local")
+func no_health():
+	queue_free()

@@ -26,7 +26,7 @@ func _on_area_2d_area_entered(area):
 		move = false
 	if area.is_in_group("house"):
 		move = false
-	if area.is_in_group("dynamite"):
+	if area.is_in_group("rocket"):
 		queue_free()
 
 

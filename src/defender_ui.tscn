@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2xtmn")
 
-[node name="DynamiteButton" type="Button" parent="."]
+[node name="RocketButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 41.0

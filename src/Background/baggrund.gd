@@ -4,7 +4,9 @@ extends Node2D
 @onready var house = $House
 @onready var spawner = $MultiplayerSpawner
 @onready var bullcursor = load("res://Bulldozer/BulldozerCursor.png")
+@onready var rocketscene = load("res://Dynamit/rocket.tscn")
 var allowBullSpawn = false
+var allowRocketSpawn = false
 
 
 
@@ -19,6 +21,8 @@ func _ready():
 		bullbutton.button_down.connect(_on_bulldoze_button_button_down)
 	else:
 		get_tree().root.add_child(defend)
+		var rocketbutton = defend.get_node('RocketButton')
+		rocketbutton.button_down.connect(_on_rocket_button_button_down)
 	
 	for s in spawns:
 		s.chosen.connect(_on_spawn_point_chosen)
@@ -33,10 +37,6 @@ func _on_bulldoze_button_button_down():
 	Input.set_custom_mouse_cursor(bullcursor)
 
 @rpc("any_peer", "call_local")
-func spawn_bulldozer():
-	pass
-
-@rpc("any_peer", "call_local")
 func _on_spawn_point_chosen(pos):
 	if allowBullSpawn: 
 		var bull = bulldozer.instantiate()
@@ -45,3 +45,21 @@ func _on_spawn_point_chosen(pos):
 		get_tree().call_group('bulldozer', 'set_move_target', house.position)
 		Input.set_custom_mouse_cursor(null)
 		allowBullSpawn = false
+
+func _on_rocket_button_button_down():
+	allowRocketSpawn = true
+
+
+func _input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if allowRocketSpawn:
+			var mouse_pos = get_viewport().get_mouse_position()
+			rocket_direction_chosen.rpc(mouse_pos)
+
+@rpc("any_peer", "call_local")
+func rocket_direction_chosen(direction : Vector2):
+	var rocket = rocketscene.instantiate()
+	rocket.position = house.global_position
+	$SpawnRoot.add_child(rocket, true)
+	rocket.fly_to_target(rocket.position.direction_to(direction))
+	allowRocketSpawn = false

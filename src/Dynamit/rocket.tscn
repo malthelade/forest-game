@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3vscsfkkc6qk"]
+
+[ext_resource type="Script" path="res://Dynamit/rocket.gd" id="1_ntsuc"]
+[ext_resource type="Texture2D" uid="uid://c1st12f43lqtd" path="res://Dynamit/rocket.png" id="2_viktn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pefdc"]
+size = Vector2(58, 13)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_p3kel"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="Rocket" type="Node2D" groups=["rocket"]]
+script = ExtResource("1_ntsuc")
+
+[node name="Area2D" type="Area2D" parent="." groups=["rocket"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-8, 1.5)
+shape = SubResource("RectangleShape2D_pefdc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-17, 2)
+rotation = 3.11192
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_viktn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_p3kel")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
