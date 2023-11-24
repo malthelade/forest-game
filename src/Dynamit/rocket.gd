@@ -15,8 +15,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	position += fly_direction*speed
-	rotation = fly_direction.angle()
+		position += fly_direction*speed
+		rotation = fly_direction.angle()
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("bulldozer"):

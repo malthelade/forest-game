@@ -1,7 +1,7 @@
 extends Area2D
 
 
-@export var Health = 100
+var Health : int = 100
 @onready var timer = $Timer
 @onready var fire_timer = $Timer_Fire
 
