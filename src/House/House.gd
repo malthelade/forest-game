@@ -10,12 +10,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Health <= 0:
-		no_health.rpc()
+	pass
 
 #When the timer stops the house will lose health
 func _on_timer_timeout():
 	Health -= 50
+	if Health <= 0:
+		no_health.rpc()
 
 func _on_area_entered(area):
 	if area.is_in_group("bulldozer"):
