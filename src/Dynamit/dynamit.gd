@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 @onready var timer = $Timer
 var entered = true
 var eksplosion = preload("res://Dynamit/eksplosion.tscn").instantiate()
@@ -11,21 +11,16 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if entered == true:
 		position.y += 2
-	
-	
-func _on_area_entered(area):
+
+func _on_area_2d_area_entered(area):
 	if area.is_in_group("bulldozer"):
 		entered = false
 		sprite.hide()
 		add_child(eksplosion)
 		timer.start()
-
-
-
-
 
 func _on_timer_timeout():
 	queue_free()

@@ -1,6 +1,6 @@
 extends Control
 
-@export var address = '10.128.192.58'
+@export var address : String
 @export var port = 8910
 var peer 
 var team_a = 0
@@ -39,11 +39,11 @@ func connection_failed():
 	print('Connection failed')
 
 @rpc("any_peer")
-func SendPlayerInformation(name, id):
+func SendPlayerInformation(playname, id):
 	if !GameManager.Players.has(id):
 		var team = assign_team()
 		GameManager.Players[id] ={
-			"name" : name,
+			"name" : playname,
 			"id" : id,
 			"score" : 0,
 			"team" : team,
@@ -77,8 +77,8 @@ func _on_host_button_down():
 		print('cannot host: ' + str(error))
 		return
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
-	
 	multiplayer.set_multiplayer_peer(peer)
+	address = IP.resolve_hostname(str(OS.get_environment("COMPUTERNAME")),1)
 	print('Waiting For Players')
 	SendPlayerInformation($LineEdit.text, multiplayer.get_unique_id())
 	

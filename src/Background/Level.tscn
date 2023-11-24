@@ -48,23 +48,13 @@ _spawnable_scenes = PackedStringArray("res://Bulldozer/bulldozer.tscn")
 spawn_path = NodePath("../SpawnRoot")
 
 [node name="Spawnpoint" parent="." instance=ExtResource("5_1apwd")]
-position = Vector2(563, 42)
+position = Vector2(555, 36)
 
 [node name="Spawnpoint2" parent="." instance=ExtResource("5_1apwd")]
-position = Vector2(1106, 339)
+position = Vector2(1102, 338)
 
 [node name="Spawnpoint3" parent="." instance=ExtResource("5_1apwd")]
-position = Vector2(558, 607)
+position = Vector2(560, 606)
 
 [node name="Spawnpoint4" parent="." instance=ExtResource("5_1apwd")]
-position = Vector2(46.0001, 338)
-
-[connection signal="input_event" from="Spawnpoint/Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="input_event" from="Spawnpoint2/Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="input_event" from="Spawnpoint3/Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="input_event" from="Spawnpoint4/Area2D" to="." method="_on_area_2d_input_event"]
-
-[editable path="Spawnpoint"]
-[editable path="Spawnpoint2"]
-[editable path="Spawnpoint3"]
-[editable path="Spawnpoint4"]
+position = Vector2(37, 345)

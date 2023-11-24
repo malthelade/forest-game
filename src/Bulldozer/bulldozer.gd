@@ -3,8 +3,7 @@ extends Node2D
 var speed = 250
 @export var move_target = Vector2.ZERO
 var move = true
-@onready var timer = $Timer
-var baggrund = 1152
+var baggrund = 1152.0
 @onready var sprite = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
