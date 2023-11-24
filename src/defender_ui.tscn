@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bv3jbsa074vi3"]
+[gd_scene load_steps=2 format=3 uid="uid://bv3jbsa074vi3"]
+
+[ext_resource type="Script" path="res://defender_ui.gd" id="1_2xtmn"]
 
 [node name="DefenderUI" type="Control"]
 layout_mode = 3
@@ -7,8 +9,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2xtmn")
 
-[node name="Button" type="Button" parent="."]
+[node name="DynamiteButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 41.0

@@ -12,13 +12,10 @@ properties/0/spawn = true
 properties/0/sync = true
 properties/0/watch = false
 
-[node name="Node2D" type="Node2D" groups=["bulldozer"]]
+[node name="Bulldozer" type="Node2D" groups=["bulldozer"]]
 script = ExtResource("1_ycklb")
 
 [node name="Area2D" type="Area2D" parent="." groups=["bulldozer"]]
-
-[node name="Timer" type="Timer" parent="Area2D"]
-wait_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, -1.5)
