@@ -14,7 +14,7 @@ func _process(_delta):
 
 #When the timer stops the house will lose health
 func _on_timer_timeout():
-	Health -= 50
+	Health -= 10
 	if Health <= 0:
 		no_health.rpc()
 

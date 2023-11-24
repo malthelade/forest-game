@@ -1,7 +1,6 @@
 extends Area2D
 
-
-@export var Health = 100
+var Health = 100
 @onready var timer = $Timer
 @onready var fire_timer = $Timer_Fire
 
@@ -17,9 +16,10 @@ func _process(_delta):
 	
 #decreases health and checks if the house is dead and if it is dead it queue_free and deletes it
 func _on_timer_timeout():
-	Health -= 20
+	Health -= 5
 	if Health <= 0:
 		no_health.rpc()
+		
 	
 func on_fire():
 	pass
@@ -28,7 +28,16 @@ func on_fire():
 func _on_area_entered(area):
 	if area.is_in_group("bulldozer"):
 		timer.start()
+		
+
+
 
 @rpc("any_peer","call_local")
 func no_health():
 	queue_free()
+
+
+func _on_area_exited(area):
+	if area.is_in_group("bulldozer"):
+		timer.stop()
+		

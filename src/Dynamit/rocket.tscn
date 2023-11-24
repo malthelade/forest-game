@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3vscsfkkc6qk"]
+[gd_scene load_steps=5 format=3 uid="uid://brvrerjkc8xls"]
 
 [ext_resource type="Script" path="res://Dynamit/rocket.gd" id="1_ntsuc"]
 [ext_resource type="Texture2D" uid="uid://c1st12f43lqtd" path="res://Dynamit/rocket.png" id="2_viktn"]
