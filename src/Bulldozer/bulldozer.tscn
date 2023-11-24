@@ -24,14 +24,14 @@ wait_time = 2.0
 position = Vector2(-1, -1.5)
 shape = SubResource("RectangleShape2D_uh5ih")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(-2.5, -1.405)
-scale = Vector2(0.133775, 0.116135)
-texture = ExtResource("2_konmy")
-
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 root_path = NodePath("../Area2D")
 replication_config = SubResource("SceneReplicationConfig_the11")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.5, -1.405)
+scale = Vector2(0.133775, 0.116135)
+texture = ExtResource("2_konmy")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

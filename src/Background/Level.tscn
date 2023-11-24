@@ -18,7 +18,28 @@ texture = ExtResource("1_ddino")
 position = Vector2(562, 319)
 
 [node name="Tree" parent="." instance=ExtResource("3_eikhh")]
-position = Vector2(366, 344)
+position = Vector2(419, 340)
+
+[node name="Tree2" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(561, 497)
+
+[node name="Tree3" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(561, 453)
+
+[node name="Tree4" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(776, 334)
+
+[node name="Tree5" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(703, 335)
+
+[node name="Tree6" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(560, 158)
+
+[node name="Tree7" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(559, 210)
+
+[node name="Tree8" parent="." instance=ExtResource("3_eikhh")]
+position = Vector2(325, 342)
 
 [node name="SpawnRoot" type="Node2D" parent="."]
 
