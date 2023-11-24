@@ -29,9 +29,6 @@ func on_fire():
 func _on_area_entered(area):
 	if area.is_in_group("bulldozer"):
 		timer.start()
-		
-
-
 
 @rpc("any_peer","call_local")
 func no_health():

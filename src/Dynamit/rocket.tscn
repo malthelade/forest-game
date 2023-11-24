@@ -28,7 +28,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_viktn")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.75
+wait_time = 0.2
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_p3kel")
