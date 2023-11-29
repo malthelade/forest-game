@@ -22,9 +22,6 @@ func _on_timer_timeout():
 		no_health.rpc()
 		
 	
-func on_fire():
-	pass
-	
 	#if the area the tree has entered is in the group bulldozer it will start a timer
 func _on_area_entered(area):
 	if area.is_in_group("bulldozer"):

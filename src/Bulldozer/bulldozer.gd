@@ -10,14 +10,12 @@ var baggrund = 1152.0
 func _ready():
 	pass
 	
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	
 	if position.x > baggrund/2:
 		sprite.flip_h = true
-		
-	
+
 	if move == true:
 		position += (move_target-position)/speed
 

@@ -33,3 +33,6 @@ func _on_timer_timeout():
 func fly_to_target(direction):
 	fly_direction = direction
 	flying = true
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()

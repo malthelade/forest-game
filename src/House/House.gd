@@ -3,6 +3,8 @@ extends Area2D
 var Health = 250
 @onready var timer = $Timer
 
+signal gameover
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -25,4 +27,5 @@ func _on_area_entered(area):
 
 @rpc("any_peer","call_local")
 func no_health():
+	gameover.emit()
 	queue_free()
