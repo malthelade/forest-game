@@ -47,7 +47,6 @@ func _on_rocket_button_button_down():
 	allowRocketSpawn = true
 	Input.set_custom_mouse_cursor(rocketcursor)
 
-
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if allowRocketSpawn:
