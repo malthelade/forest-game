@@ -6,13 +6,6 @@ var eksplosion = preload("res://Dynamit/eksplosion.tscn").instantiate()
 var speed = 10
 var flying = false
 var fly_direction
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 		position += fly_direction*speed
