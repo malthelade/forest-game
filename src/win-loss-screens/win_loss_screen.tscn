@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqy47btwughvq"]
+
+[ext_resource type="Texture2D" uid="uid://dl8au3dwmucru" path="res://win-loss-screens/bamse taber.png" id="1_klxlg"]
+[ext_resource type="Script" path="res://win-loss-screens/win_loss_screen.gd" id="1_r2gts"]
+
+[node name="win-loss-screen" type="Sprite2D"]
+position = Vector2(720, 454)
+texture = ExtResource("1_klxlg")
+script = ExtResource("1_r2gts")

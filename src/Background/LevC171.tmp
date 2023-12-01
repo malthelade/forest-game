@@ -44,7 +44,7 @@ position = Vector2(325, 342)
 [node name="SpawnRoot" type="Node2D" parent="."]
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Bulldozer/bulldozer.tscn", "res://Dynamit/rocket.tscn", "res://Dynamit/eksplosion.tscn")
+_spawnable_scenes = PackedStringArray("res://Bulldozer/bulldozer.tscn")
 spawn_path = NodePath("../SpawnRoot")
 
 [node name="Spawnpoint" parent="." instance=ExtResource("5_1apwd")]
@@ -58,5 +58,3 @@ position = Vector2(560, 606)
 
 [node name="Spawnpoint4" parent="." instance=ExtResource("5_1apwd")]
 position = Vector2(37, 345)
-
-[connection signal="gameover" from="House" to="." method="_on_house_gameover"]

@@ -3,6 +3,10 @@ extends Area2D
 var Health = 250
 @onready var timer = $Timer
 
+signal gameover
+
+signal gameover
+
 
 #When the timer stops the house will lose health
 func _on_timer_timeout():
@@ -21,4 +25,5 @@ func _on_area_exited(area):
 
 @rpc("any_peer","call_local")
 func no_health():
+	gameover.emit()
 	queue_free()

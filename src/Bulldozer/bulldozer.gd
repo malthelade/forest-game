@@ -11,7 +11,7 @@ func _process(_delta):
 	
 	if position.x > baggrund/2:
 		sprite.flip_h = true
-		
+
 	if move == true:
 		position += (move_target-position)/speed
 

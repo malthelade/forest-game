@@ -78,6 +78,7 @@ func _on_host_button_down():
 		return
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
+	@warning_ignore("int_as_enum_without_cast")
 	address = IP.resolve_hostname(str(OS.get_environment("COMPUTERNAME")),1)
 	$IPlabel.text = address
 	print('Waiting For Players')
