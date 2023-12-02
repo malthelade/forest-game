@@ -13,12 +13,6 @@ func _ready():
 	multiplayer.connected_to_server.connect(connected_to_server)
 	multiplayer.connection_failed.connect(connection_failed)
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
 # Kaldes på både server og client
 func peer_connected(id):
 	print('Player Connected ' + str(id))
@@ -31,8 +25,6 @@ func peer_disconnected(id):
 func connected_to_server():
 	print('Connected to server!')
 	SendPlayerInformation.rpc_id(1, $NameLineEdit.text, multiplayer.get_unique_id())
-	
-	
 
 # Kaldes på client
 func connection_failed():
