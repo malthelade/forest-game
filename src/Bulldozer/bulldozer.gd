@@ -28,5 +28,5 @@ func _on_area_2d_area_exited(area):
 		move = true
 
 func set_move_target(pos:Vector2):
-	move_target = pos
+	move_target = pos.normalized()
 
