@@ -22,3 +22,12 @@ offset_bottom = 147.0
 mouse_filter = 1
 icon = ExtResource("1_12rgu")
 expand_icon = true
+
+[node name="FireButton" type="Button" parent="."]
+self_modulate = Color(0.815686, 0.431373, 0.156863, 1)
+layout_mode = 0
+offset_left = 250.0
+offset_top = 50.0
+offset_right = 411.0
+offset_bottom = 146.0
+text = "FIRE"

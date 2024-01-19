@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://win-loss-screens/win_loss_screen.gd" id="1_r2gts"]
 
 [node name="win-loss-screen" type="Sprite2D"]
-position = Vector2(720, 454)
+position = Vector2(573, 408)
+scale = Vector2(0.795833, 0.897778)
 texture = ExtResource("1_klxlg")
 script = ExtResource("1_r2gts")
