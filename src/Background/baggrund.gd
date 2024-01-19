@@ -7,6 +7,7 @@ extends Node2D
 @onready var firecursor = load("res://ildcursor.png")
 @onready var rocketscene = load("res://Dynamit/rocket.tscn")
 @onready var rocketcursor = load("res://Dynamit/rocket-cross.png")
+@onready var firescene = load("res://Fire/fire.tscn")
 @onready var attack = load("res://attacker_ui.tscn").instantiate()
 @onready var defend = load("res://defender_ui.tscn").instantiate()
 var allowBullSpawn = false
@@ -18,6 +19,7 @@ var allowFireSpawn = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var spawns = [$Spawnpoint, $Spawnpoint2, $Spawnpoint3, $Spawnpoint4]
+	var trees = [$Tree, $Tree2, $Tree3, $Tree4, $Tree5, $Tree6, $Tree7, $Tree8]
 	if GameManager.Players[multiplayer.get_unique_id()]['team'] == 'b':
 		add_child(attack)
 		var bullbutton = attack.get_node('BulldozeButton')
@@ -31,6 +33,8 @@ func _ready():
 	
 	for s in spawns:
 		s.chosen.connect(_on_spawn_point_chosen)
+	for s in trees:
+		s.tree_clicked.connect(_on_tree_clicked)
 
 
 func _on_bulldoze_button_button_down():
@@ -44,6 +48,18 @@ func _on_fire_button_button_down():
 func _on_spawn_point_chosen(pos):
 	if allowBullSpawn: 
 		spawn_bulldozer.rpc(pos)
+	
+func spawn_fire(pos: Vector2):
+	var fire = firescene.instantiate()
+	fire.position = pos
+	$SpawnRoot.add_child(fire, true)
+	Input.set_custom_mouse_cursor(null)
+	allowFireSpawn = false
+	
+func _on_tree_clicked(pos):
+	if allowFireSpawn:
+		spawn_fire.rpc(pos)
+		
 
 @rpc("any_peer", "call_local")
 func spawn_bulldozer(pos):
@@ -72,6 +88,8 @@ func rocket_direction_chosen(direction : Vector2):
 	$SpawnRoot.add_child(rocket, true)
 	rocket.fly_to_target(rocket.position.direction_to(direction))
 	allowRocketSpawn = false
+	
+
 
 
 
