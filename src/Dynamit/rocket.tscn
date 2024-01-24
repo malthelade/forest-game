@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://brvrerjkc8xls"]
+[gd_scene load_steps=6 format=3 uid="uid://brvrerjkc8xls"]
 
 [ext_resource type="Script" path="res://Dynamit/rocket.gd" id="1_ntsuc"]
 [ext_resource type="Texture2D" uid="uid://c1st12f43lqtd" path="res://Dynamit/rocket.png" id="2_viktn"]
+[ext_resource type="AudioStream" uid="uid://bp4mbldowhvbb" path="res://Audio/Explosion.mp3" id="3_awei2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pefdc"]
 size = Vector2(58, 13)
@@ -28,12 +29,15 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_viktn")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.4
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_p3kel")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_awei2")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

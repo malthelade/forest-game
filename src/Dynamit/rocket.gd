@@ -5,6 +5,7 @@ var eksplosion = load("res://Dynamit/explosion3.png")
 var speed = 10
 var flying = false
 var fly_direction
+@onready var explosion = $Explosion
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if flying:
@@ -19,6 +20,7 @@ func _on_area_2d_area_entered(area):
 		sprite.scale = Vector2(0.5,0.5)
 		sprite.texture = eksplosion
 		timer.start()
+		explosion.play()
 
 func _on_timer_timeout():
 	queue_free()
