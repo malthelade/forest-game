@@ -1,10 +1,10 @@
-extends Area2D
+extends Sprite2D
 
 
 var Health : int = 100
 @onready var timer = $Timer
 signal tree_clicked(pos : Vector2)
-@onready var area_2d = $Tree
+@onready var area_2d = $Area2D
 
 
 
@@ -15,11 +15,11 @@ func _on_timer_timeout():
 		no_health.rpc()
 
 	#if the area the tree has entered is in the group bulldozer it will start a timer
-func _on_area_entered(area):
+func _on_area_2d_area_entered(area):
 	if area.is_in_group("bulldozer"):
 		timer.start()
 
-func _on_area_exited(area):
+func _on_area_2d_area_exited(area):
 	if area.is_in_group("bulldozer"):
 		timer.stop()
 
@@ -31,15 +31,13 @@ func on_fire():
 	$FireTimer.start()
 
 
-
 func _on_fire_timer_timeout():
 	Health -= 2.5
 	if Health <=0:
 		no_health.rpc()
 
-
-func _on_input_event(viewport, event, shape_idx):
+func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		tree_clicked.emit(area_2d.global_position)
+		tree_clicked.emit(global_position)
 		print("clicked")
 	

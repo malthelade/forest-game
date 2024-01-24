@@ -49,6 +49,7 @@ func _on_spawn_point_chosen(pos):
 	if allowBullSpawn: 
 		spawn_bulldozer.rpc(pos)
 	
+@rpc("any_peer", "call_local")
 func spawn_fire(pos: Vector2):
 	var fire = firescene.instantiate()
 	fire.position = pos
