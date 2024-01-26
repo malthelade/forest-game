@@ -5,9 +5,11 @@ var speed = 250
 var move = true
 var baggrund = 1152.0
 @onready var sprite = $Sprite2D
+@onready var bulldozer = $BulldozerAudio
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	bulldozer.play()
 	
 	if position.x > baggrund/2:
 		sprite.flip_h = true

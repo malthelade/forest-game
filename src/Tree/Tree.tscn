@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://buygwb8fxgps5"]
+[gd_scene load_steps=5 format=3 uid="uid://buygwb8fxgps5"]
 
 [ext_resource type="Script" path="res://Tree/Tree.gd" id="1_mxsod"]
 [ext_resource type="Texture2D" uid="uid://bg6725au52f3g" path="res://Tree/træer all frames.png" id="2_6n85u"]
+[ext_resource type="AudioStream" uid="uid://t5ox0cr60j7s" path="res://Audio/Træ_dør.MP3" id="3_kgs43"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khpqs"]
 size = Vector2(2500, 2320)
@@ -24,6 +25,9 @@ debug_color = Color(0, 0.6, 0.701961, 0.431373)
 wait_time = 0.1
 
 [node name="FireTimer" type="Timer" parent="."]
+
+[node name="Tree_die" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kgs43")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

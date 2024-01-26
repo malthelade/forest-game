@@ -10,6 +10,7 @@ extends Node2D
 @onready var firescene = load("res://Fire/fire.tscn")
 @onready var attack = load("res://attacker_ui.tscn").instantiate()
 @onready var defend = load("res://defender_ui.tscn").instantiate()
+@onready var music = $BackgroundMusic
 var allowBullSpawn = false
 var allowRocketSpawn = false
 var allowFireSpawn = false
@@ -35,6 +36,8 @@ func _ready():
 		s.chosen.connect(_on_spawn_point_chosen)
 	for s in trees:
 		s.tree_clicked.connect(_on_tree_clicked)
+		
+		
 
 
 func _on_bulldoze_button_button_down():

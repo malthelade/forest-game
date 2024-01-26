@@ -5,6 +5,15 @@ var Health = 250
 
 signal gameover
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+
 #When the timer stops the house will lose health
 func _on_timer_timeout():
 	Health -= 10

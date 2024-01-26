@@ -24,3 +24,5 @@ position = Vector2(432, 406)
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Bulldozer/bulldozer.tscn")
 spawn_path = NodePath("../SpawnRoot")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
