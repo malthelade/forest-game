@@ -37,7 +37,7 @@ func _ready():
 	for s in trees:
 		s.tree_clicked.connect(_on_tree_clicked)
 		
-		
+		music.play()
 
 
 func _on_bulldoze_button_button_down():

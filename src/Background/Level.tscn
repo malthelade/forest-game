@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://v28fl02ldx7d"]
+[gd_scene load_steps=7 format=3 uid="uid://v28fl02ldx7d"]
 
 [ext_resource type="Texture2D" uid="uid://kbsgsh26kg0j" path="res://Background/GrassBackground.png" id="1_ddino"]
 [ext_resource type="Script" path="res://Background/baggrund.gd" id="1_l100i"]
 [ext_resource type="PackedScene" uid="uid://crmpw820snie8" path="res://House/House.tscn" id="2_hqwx3"]
 [ext_resource type="PackedScene" uid="uid://buygwb8fxgps5" path="res://Tree/Tree.tscn" id="3_eikhh"]
 [ext_resource type="PackedScene" uid="uid://nrkc8icjpdmw" path="res://Bulldozer/spawnpoint.tscn" id="5_1apwd"]
+[ext_resource type="AudioStream" uid="uid://sdyksn5qlve" path="res://Audio/gaming sound.mp3" id="6_p5484"]
 
 [node name="Baggrund" type="Node2D"]
 script = ExtResource("1_l100i")
@@ -58,5 +59,8 @@ position = Vector2(560, 606)
 
 [node name="Spawnpoint4" parent="." instance=ExtResource("5_1apwd")]
 position = Vector2(37, 345)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_p5484")
 
 [connection signal="gameover" from="House" to="." method="_on_house_gameover"]
