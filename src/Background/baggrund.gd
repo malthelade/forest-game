@@ -11,6 +11,8 @@ extends Node2D
 @onready var attack = load("res://attacker_ui.tscn").instantiate()
 @onready var defend = load("res://defender_ui.tscn").instantiate()
 @onready var music = $BackgroundMusic
+@onready var winscreen = $Winscreen
+@onready var lossscreen = $Loss
 var allowBullSpawn = false
 var allowRocketSpawn = false
 var allowFireSpawn = false
@@ -95,14 +97,12 @@ func rocket_direction_chosen(direction : Vector2):
 	
 
 
-
-
-
-
 func _on_house_gameover():
 	var end = load("res://win-loss-screens/win_loss_screen.tscn").instantiate()
 	if GameManager.Players[multiplayer.get_unique_id()]['team'] == 'b':
 		end.texture = load("res://win-loss-screens/corpoman wins-2.png")
+		winscreen.play()
 	else:
 		end.texture = load("res://win-loss-screens/bamse taber.png")
+		lossscreen.play()
 	get_parent().add_child(end)
