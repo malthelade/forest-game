@@ -31,7 +31,7 @@ func _on_area_2d_area_exited(area):
 func no_health():
 	queue_free()
 
-func on_fire():
+func ignite_fire():
 	$FireTimer.start()
 
 
@@ -42,8 +42,7 @@ func _on_fire_timer_timeout():
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		tree_clicked.emit(global_position)
-		print("clicked")
+		tree_clicked.emit(name)
 		
 	
 

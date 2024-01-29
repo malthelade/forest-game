@@ -25,6 +25,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.431373)
 wait_time = 0.1
 
 [node name="FireTimer" type="Timer" parent="."]
+wait_time = 0.1
 
 [node name="Tree_die" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_kgs43")
@@ -33,3 +34,4 @@ stream = ExtResource("3_kgs43")
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]

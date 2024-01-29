@@ -53,16 +53,19 @@ func _on_spawn_point_chosen(pos):
 		spawn_bulldozer.rpc(pos)
 	
 @rpc("any_peer", "call_local")
-func spawn_fire(pos: Vector2):
+func spawn_fire(tree_node_name : String):
 	var fire = firescene.instantiate()
-	fire.position = pos
-	$SpawnRoot.add_child(fire, true)
+	var tree = get_node(tree_node_name)
+	#fire.position = tree.position
+	#$SpawnRoot.add_child(fire, true)
+	tree.add_child(fire, true)
+	tree.ignite_fire()
 	Input.set_custom_mouse_cursor(null)
 	allowFireSpawn = false
 	
-func _on_tree_clicked(pos):
+func _on_tree_clicked(tree_node_name):
 	if allowFireSpawn:
-		spawn_fire.rpc(pos)
+		spawn_fire.rpc(tree_node_name)
 		
 
 @rpc("any_peer", "call_local")
