@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkvnn7afhuip0"]
+[gd_scene load_steps=11 format=3 uid="uid://bkvnn7afhuip0"]
 
-[ext_resource type="Script" path="res://Fire/fire.gd" id="1_4es5k"]
 [ext_resource type="Texture2D" uid="uid://6btf1yhviuxv" path="res://Fire/fire_fx_v1.0/fire_fx_v1.0/png/orange/loops/burning_loop_1.png" id="2_wxcga"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cpiye"]
@@ -68,12 +67,10 @@ animations = [{
 }]
 
 [node name="Fire" type="Node2D"]
-script = ExtResource("1_4es5k")
+scale = Vector2(4, 4)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tk43c")
 autoplay = "default"
 frame_progress = 0.769624
-
-[node name="Area2D" type="Area2D" parent="."]

@@ -18,3 +18,10 @@ offset_top = 41.0
 offset_right = 232.0
 offset_bottom = 141.0
 text = "Rocket"
+
+[node name="FireExButton" type="Button" parent="."]
+offset_left = 246.0
+offset_top = 40.0
+offset_right = 436.0
+offset_bottom = 140.0
+text = "Extinguisher"
