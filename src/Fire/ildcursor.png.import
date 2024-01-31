@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bm2d48gj0stjq"
-path="res://.godot/imported/ildcursor.png-0526c441d09079d76509de42b8766924.ctex"
+path="res://.godot/imported/ildcursor.png-bf2ff77a293a9900d622f6c9425eb990.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Dynamit/ildcursor.png"
-dest_files=["res://.godot/imported/ildcursor.png-0526c441d09079d76509de42b8766924.ctex"]
+source_file="res://Fire/ildcursor.png"
+dest_files=["res://.godot/imported/ildcursor.png-bf2ff77a293a9900d622f6c9425eb990.ctex"]
 
 [params]
 

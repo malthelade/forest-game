@@ -6,6 +6,8 @@ var Health : int = 100
 signal tree_clicked(pos : Vector2)
 @onready var area_2d = $Area2D
 @onready var tree_die = $Tree_die
+@onready var fire_burning = $FireBurning
+
 @export var on_fire = false
 
 
@@ -34,11 +36,15 @@ func no_health():
 
 func ignite_fire():
 	$FireTimer.start()
+	fire_burning.play()
 	on_fire = true
 
 @rpc("any_peer","call_local")
 func kill_fire():
 	$FireTimer.stop()
+	$Brandslukker.play(0.48)
+	await get_tree().create_timer(3.0).timeout
+	fire_burning.stop()
 	$Fire.queue_free()
 	on_fire = false
 

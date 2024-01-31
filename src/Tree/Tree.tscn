@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://buygwb8fxgps5"]
+[gd_scene load_steps=7 format=3 uid="uid://buygwb8fxgps5"]
 
 [ext_resource type="Script" path="res://Tree/Tree.gd" id="1_mxsod"]
 [ext_resource type="Texture2D" uid="uid://bg6725au52f3g" path="res://Tree/træer all frames.png" id="2_6n85u"]
 [ext_resource type="AudioStream" uid="uid://t5ox0cr60j7s" path="res://Audio/Træ_dør.MP3" id="3_kgs43"]
+[ext_resource type="AudioStream" uid="uid://csfa23mfvuupk" path="res://Audio/ILDILDILDILD.MP3" id="4_hlo2p"]
+[ext_resource type="AudioStream" uid="uid://c0iluy2uq6lbj" path="res://Audio/Brandslukker.MP3" id="5_2nw44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khpqs"]
 size = Vector2(2500, 2320)
@@ -29,6 +31,13 @@ wait_time = 0.1
 
 [node name="Tree_die" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_kgs43")
+
+[node name="FireBurning" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hlo2p")
+
+[node name="Brandslukker" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2nw44")
+volume_db = 3.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

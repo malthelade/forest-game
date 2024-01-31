@@ -4,15 +4,17 @@ extends Node2D
 @onready var house = $House
 @onready var spawner = $MultiplayerSpawner
 @onready var bullcursor = load("res://Bulldozer/BulldozerCursor.png")
-@onready var firecursor = load("res://ildcursor.png")
+@onready var firecursor = load("res://Fire/ildcursor.png")
 @onready var rocketscene = load("res://Dynamit/rocket.tscn")
 @onready var rocketcursor = load("res://Dynamit/rocket-cross.png")
+@onready var extincursor = load("res://brandslukker.png")
 @onready var firescene = load("res://Fire/fire.tscn")
 @onready var attack = load("res://attacker_ui.tscn").instantiate()
 @onready var defend = load("res://defender_ui.tscn").instantiate()
 @onready var music = $BackgroundMusic
 @onready var winscreen = $Winscreen
 @onready var lossscreen = $Loss
+@onready var roundtimer = $RoundTime
 var allowBullSpawn = false
 var allowRocketSpawn = false
 var allowFireSpawn = false
@@ -43,6 +45,8 @@ func _ready():
 		
 		music.play()
 
+func _process(delta):
+	$TimeLeftLabel.text = 'Time left: ' + str(int(roundtimer.time_left))
 
 func _on_bulldoze_button_button_down():
 	allowBullSpawn = true
@@ -50,6 +54,7 @@ func _on_bulldoze_button_button_down():
 	
 func _on_fire_ex_button_button_down():
 	allowFireStop = true
+	Input.set_custom_mouse_cursor(extincursor)
 
 func _on_fire_button_button_down():
 	allowFireSpawn = true
@@ -76,6 +81,7 @@ func _on_tree_clicked(tree_node_name : String):
 	if tree.on_fire and allowFireStop:
 		tree.kill_fire.rpc()
 		allowFireStop = false
+		Input.set_custom_mouse_cursor(null)
 
 @rpc("any_peer", "call_local")
 func spawn_bulldozer(pos):
@@ -115,4 +121,15 @@ func _on_house_gameover():
 	else:
 		end.texture = load("res://win-loss-screens/bamse taber.png")
 		lossscreen.play()
+	get_parent().add_child(end)
+
+
+func _on_round_time_timeout():
+	var end = load("res://win-loss-screens/win_loss_screen.tscn").instantiate()
+	if GameManager.Players[multiplayer.get_unique_id()]['team'] == 'b':
+		end.texture = load("res://win-loss-screens/corpoman taber.png")
+		lossscreen.play()
+	else:
+		end.texture = load("res://win-loss-screens/bamse vinder.png")
+		winscreen.play()
 	get_parent().add_child(end)
